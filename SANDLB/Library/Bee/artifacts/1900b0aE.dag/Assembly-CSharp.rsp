@@ -359,10 +359,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/GameManagerScript.cs"
-"Assets/Scripts/IdleState.cs"
-"Assets/Scripts/MovingState.cs"
-"Assets/Scripts/PlayerScript.cs"
-"Assets/Scripts/PlayerState.cs"
+"Assets/Scripts/Player/IdleState.cs"
+"Assets/Scripts/Player/MovingState.cs"
+"Assets/Scripts/Player/PlayerScript.cs"
+"Assets/Scripts/Player/PlayerState.cs"
 -langversion:9.0
 
 /deterministic
