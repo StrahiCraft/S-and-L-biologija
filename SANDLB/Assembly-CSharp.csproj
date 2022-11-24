@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Player\IdleState.cs" />
     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\DiceScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
