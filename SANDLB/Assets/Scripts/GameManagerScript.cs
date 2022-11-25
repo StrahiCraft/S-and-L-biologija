@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    [SerializeField] GameObject DiceCamera;
+
     [SerializeField] GameObject player;//samo za testiranje sa 1 igracom, to vazi i za sledeca 2
 
     [SerializeField] float playerJumpHeight;
@@ -12,6 +14,7 @@ public class GameManagerScript : MonoBehaviour
 
     [SerializeField] List<GameObject> fields;//lista sa svim poljima
     GameObject fieldHolder;//gameobject u kome se nalaze sva polja
+
 
     void Start()
     {
@@ -33,12 +36,19 @@ public class GameManagerScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))//detektuje klik spacea, zameniti kockicom ili sta vec odlucimo za biranje koliko se igrac pomera
         {
-            List<Vector3> positions = GeneratePositionList(2);
-            if(positions.Count == 0)
-            {
-                return;
-            }
-            player.GetComponent<PlayerScript>().StartPlayerMotion(positions);
+            DiceCamera.SetActive(true);
+            DiceCamera.GetComponentInChildren<DiceScript>().ThrowDice();
+        }
+        int moveCount = DiceCamera.GetComponentInChildren<DiceScript>().DiceValue;
+        List<Vector3> positions = GeneratePositionList(moveCount);
+        if (positions.Count < 3)
+        {
+            return;
+        }
+        player.GetComponent<PlayerScript>().StartPlayerMotion(positions);
+        if(moveCount > 0)
+        {
+            DiceCamera.SetActive(false);
         }
     }
     List<Vector3> GeneratePositionList(int moves)//ova funkcija sluzi da napravi listu pozicija koje traba igrac da predje u zavisnosti od toga koliko polja treba da predje
@@ -50,9 +60,12 @@ public class GameManagerScript : MonoBehaviour
         List<Vector3> positions = new List<Vector3>();
         for(int i = 0; i < moves; i++)
         {
-            positions.Add(fields[playerPos].transform.position);
-            positions.Add(GenerateJumpPeak(fields[playerPos].transform.position, fields[playerPos + 1].transform.position));
-            playerPos++;
+            if(playerPos < fields.Count)
+            {
+                positions.Add(fields[playerPos].transform.position);
+                positions.Add(GenerateJumpPeak(fields[playerPos].transform.position, fields[playerPos + 1].transform.position));
+                playerPos++;
+            }
         }
         positions.Add(fields[playerPos].transform.position);
         return positions;
