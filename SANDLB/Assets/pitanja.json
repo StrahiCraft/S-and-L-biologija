@@ -1,0 +1,12 @@
+{
+    "questions" :[
+        {
+            "questionText" : "Odgovor na ovo pitanje je true",
+            "answer" : true
+        },
+        {
+            "questionText" : "Odgovor na ovo pitanje je false",
+            "answer" : false
+        }
+    ]
+}

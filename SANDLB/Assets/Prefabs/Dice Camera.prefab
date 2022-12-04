@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 5125468740312601464}
   m_Layer: 0
   m_Name: Dice Camera
-  m_TagString: Untagged
+  m_TagString: DiceCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -619,7 +619,7 @@ Transform:
   - {fileID: 5125468739781675331}
   - {fileID: 5125468739560090210}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 38.59, y: 0, z: 0}
 --- !u!20 &5125468740312601464
 Camera:

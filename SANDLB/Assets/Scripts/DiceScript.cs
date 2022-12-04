@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiceScript : MonoBehaviour
 {
-    [SerializeField] LayerMask DiceBox;
+    [SerializeField] LayerMask DiceBoxLayer;
 
     Rigidbody rb;
     Vector3 defaultPosition;
@@ -18,7 +18,7 @@ public class DiceScript : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         defaultPosition = transform.position;
-        DiceBox = ~DiceBox;
+        DiceBoxLayer = ~DiceBoxLayer;
     }
     public void ThrowDice()
     {
@@ -34,7 +34,6 @@ public class DiceScript : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(DetectDiceStopping());
     }
-
     IEnumerator DetectDiceStopping()
     {
         Vector3 lastPosition = transform.position;
@@ -50,34 +49,23 @@ public class DiceScript : MonoBehaviour
 
     int GetDiceValue()
     {
-        RaycastHit hit;
         float maxHitDistance = -1;
         int maxFaceID = 0;
-        if(Physics.Raycast(transform.position, transform.forward, out hit, 100, DiceBox))
-        {
-            maxHitDistance = GetDiceFace(maxHitDistance, hit.distance, 3, ref maxFaceID);
-        }
-        if (Physics.Raycast(transform.position, -transform.forward, out hit, 100, DiceBox))
-        {
-            maxHitDistance = GetDiceFace(maxHitDistance, hit.distance, 4, ref maxFaceID);
-        }
-        if (Physics.Raycast(transform.position, transform.right, out hit, 100, DiceBox))
-        {
-            maxHitDistance = GetDiceFace(maxHitDistance, hit.distance, 1, ref maxFaceID);
-        }
-        if (Physics.Raycast(transform.position, -transform.right, out hit, 100, DiceBox))
-        {
-            maxHitDistance = GetDiceFace(maxHitDistance, hit.distance, 6, ref maxFaceID);
-        }
-        if (Physics.Raycast(transform.position, transform.up, out hit, 100, DiceBox))
-        {
-            maxHitDistance = GetDiceFace(maxHitDistance, hit.distance, 5, ref maxFaceID);
-        }
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 100, DiceBox))
-        {
-            maxHitDistance = GetDiceFace(maxHitDistance, hit.distance, 2, ref maxFaceID);
-        }
+        DoDiceFaceRaycast(transform.right, 1, ref maxHitDistance, ref maxFaceID);
+        DoDiceFaceRaycast(-transform.up, 2, ref maxHitDistance, ref maxFaceID);
+        DoDiceFaceRaycast(transform.forward, 3, ref maxHitDistance, ref maxFaceID);
+        DoDiceFaceRaycast(-transform.forward, 4, ref maxHitDistance, ref maxFaceID);
+        DoDiceFaceRaycast(transform.up, 5, ref maxHitDistance, ref maxFaceID);
+        DoDiceFaceRaycast(-transform.right, 6, ref maxHitDistance, ref maxFaceID);
         return maxFaceID;
+    }
+    void DoDiceFaceRaycast(Vector3 direction, int diceFaceNumber, ref float maxHitDistance, ref int maxFaceID)
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position,direction , out hit, 100, DiceBoxLayer))
+        {
+            maxHitDistance = GetDiceFace(maxHitDistance, hit.distance, diceFaceNumber, ref maxFaceID);
+        }
     }
     float GetDiceFace(float dist1, float dist2, int faceID, ref int maxFaceID)
     {

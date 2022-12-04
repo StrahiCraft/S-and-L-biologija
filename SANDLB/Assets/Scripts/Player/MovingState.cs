@@ -15,7 +15,7 @@ public class MovingState : PlayerState
 
         if(player.transform.position == positions[positions.Count - 1])
         {
-            player.GetComponent<PlayerScript>().ChangeState(new IdleState());
+            player.GetComponent<PlayerScript>().StartCoroutine(player.GetComponent<PlayerScript>().ChangeStateDelayed(new IdleState(), 1f));
         }
         if(positionIndex + 2 == positions.Count)
         {

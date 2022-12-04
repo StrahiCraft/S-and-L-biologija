@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    [SerializeField] GameObject DiceCamera;
+    [SerializeField] GameObject diceCamera;
+    [SerializeField] GameObject questionUI;
 
     [SerializeField] GameObject player;//samo za testiranje sa 1 igracom, to vazi i za sledeca 2
 
     [SerializeField] float playerJumpHeight;
 
-    [SerializeField] int playerPos = 0;
+    int playerFieldIndex = 0;
 
-    [SerializeField] List<GameObject> fields;//lista sa svim poljima
+    List<GameObject> fields = new List<GameObject>();//lista sa svim poljima
     GameObject fieldHolder;//gameobject u kome se nalaze sva polja
 
+    GameState currentGameState;
 
     void Start()
     {
+        currentGameState = new IdleGameState();
         //-------------------------------------------------------------------------------
         //ova sekcija sluzi za ubacivanje svih polja u sceni u listu polja
         fieldHolder = GameObject.FindGameObjectWithTag("FieldHolder");
@@ -36,38 +39,40 @@ public class GameManagerScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))//detektuje klik spacea, zameniti kockicom ili sta vec odlucimo za biranje koliko se igrac pomera
         {
-            DiceCamera.SetActive(true);
-            DiceCamera.GetComponentInChildren<DiceScript>().ThrowDice();
+            currentGameState.GetQuestion(questionUI);
         }
-        int moveCount = DiceCamera.GetComponentInChildren<DiceScript>().DiceValue;
+        int moveCount = diceCamera.activeInHierarchy? diceCamera.GetComponentInChildren<DiceScript>().DiceValue : 0;
         List<Vector3> positions = GeneratePositionList(moveCount);
-        if (positions.Count < 3)
-        {
-            return;
-        }
         player.GetComponent<PlayerScript>().StartPlayerMotion(positions);
-        if(moveCount > 0)
-        {
-            DiceCamera.SetActive(false);
-        }
+        currentGameState.UpdateState(moveCount, player.GetComponent<PlayerScript>().GetPlayerState());
     }
-    List<Vector3> GeneratePositionList(int moves)//ova funkcija sluzi da napravi listu pozicija koje traba igrac da predje u zavisnosti od toga koliko polja treba da predje
+    public void ChangeGameState(GameState newGameState)
     {
+        currentGameState = newGameState;
+    }
+    List<Vector3> GeneratePositionList(int moveCount)//ova funkcija sluzi da napravi listu pozicija koje traba igrac da predje u zavisnosti od toga koliko polja treba da predje
+    {
+        if(moveCount == 0)
+        {
+            return new List<Vector3>();
+        }
         if(player.GetComponent<PlayerScript>().GetPlayerState() == "moving")
         {
             return new List<Vector3>();
         }
-        List<Vector3> positions = new List<Vector3>();
-        for(int i = 0; i < moves; i++)
+        if(playerFieldIndex + moveCount >= fields.Count)
         {
-            if(playerPos < fields.Count)
-            {
-                positions.Add(fields[playerPos].transform.position);
-                positions.Add(GenerateJumpPeak(fields[playerPos].transform.position, fields[playerPos + 1].transform.position));
-                playerPos++;
-            }
+            return new List<Vector3>();
         }
-        positions.Add(fields[playerPos].transform.position);
+        List<Vector3> positions = new List<Vector3>();
+
+        for(int moveIndex = 0; moveIndex < moveCount; moveIndex++)
+        {
+            positions.Add(fields[playerFieldIndex].transform.position);
+            positions.Add(GenerateJumpPeak(fields[playerFieldIndex].transform.position, fields[playerFieldIndex + 1].transform.position));
+            playerFieldIndex++;
+        }
+        positions.Add(fields[playerFieldIndex].transform.position);
         return positions;
     }
     public Vector3 GenerateJumpPeak(Vector3 pos1, Vector3 pos2)//ova funkcija sluzi da generise tacku za playerJumpHeight iznad viseg od dva polja
@@ -87,6 +92,12 @@ public class GameManagerScript : MonoBehaviour
     public void SetPlayerPos(int fieldIndex)//menja index igraceve pozicije
     {
         //TODO kad se dodaju vise igraca dodati funkcionalnost da promeni samo za onog koji je na redu
-        playerPos = fieldIndex - 1;
+        playerFieldIndex = fieldIndex - 1;
+    }
+
+    public void RollDice()
+    {
+        questionUI.SetActive(false);
+        currentGameState.RollDice(diceCamera);
     }
 }

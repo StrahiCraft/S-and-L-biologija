@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        currentState.Move(ref startTime, ref travelLength, positions, gameObject, speed); 
+        currentState.Move(ref startTime, ref travelLength, positions, gameObject, speed);
     }
 
     public void ChangeState(PlayerState newState)
@@ -23,13 +23,30 @@ public class PlayerScript : MonoBehaviour
         currentState = newState;
     }
 
+    public IEnumerator ChangeStateDelayed(PlayerState newState, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        currentState = newState;
+    }
+
     public void StartPlayerMotion(List<Vector3> newEndPositions)
     {
+        if(newEndPositions.Count == 0)
+        {
+            return;
+        }
         positions = newEndPositions;
         currentState.StartMoving(ref startTime, ref travelLength, positions, gameObject);
     }
     public string GetPlayerState()
     {
         return currentState.GetPlayerState();
+    }
+
+    IEnumerator GracePeriodBeforeIdleState()
+    {
+        yield return new WaitForSeconds(1f);
+        ChangeState(new IdleState());
+        StopCoroutine(GracePeriodBeforeIdleState());
     }
 }
