@@ -410,7 +410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Neta\u010Dno"
+  m_text: Netacno
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09d1a2ad45af9ab45872d3e278629fe0, type: 2}
   m_sharedMaterial: {fileID: 601639217261465903, guid: 09d1a2ad45af9ab45872d3e278629fe0, type: 2}
@@ -651,7 +651,7 @@ RectTransform:
   - {fileID: 6331707767919413733}
   - {fileID: 6331707767817920186}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

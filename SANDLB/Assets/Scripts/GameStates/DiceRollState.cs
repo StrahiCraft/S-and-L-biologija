@@ -22,4 +22,10 @@ public class DiceRollState : GameState
         DiceCamera.SetActive(false);
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new PlayerMovingState());
     }
+    public override void OnStateEnter()
+    {
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().FreeLookCamera.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 }

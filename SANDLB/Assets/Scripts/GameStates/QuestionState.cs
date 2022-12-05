@@ -18,4 +18,10 @@ public class QuestionState : GameState
     {
         return;
     }
+    public override void OnStateEnter()
+    {
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().FreeLookCamera.SetActive(false);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
 }

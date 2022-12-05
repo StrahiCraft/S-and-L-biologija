@@ -18,4 +18,11 @@ public class IdleGameState : GameState
     {
         return;
     }
+    public override void OnStateEnter()
+    {
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().FreeLookCamera.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().NextTurn();
+    }
 }
