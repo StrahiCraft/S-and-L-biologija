@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: DiceMaterial
-    second: {fileID: 2100000, guid: f9bbaa1157df7bd4ab9a7fa0ab5e4157, type: 2}
+    second: {fileID: 2100000, guid: 249195572d8078d4594fc1150f74223f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

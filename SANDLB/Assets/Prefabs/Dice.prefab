@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 3389675208810021086}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2918388469769330805
 Rigidbody:
@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a7cf3b51a9cf9e0428f78a3ce8223c01, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9bbaa1157df7bd4ab9a7fa0ab5e4157, type: 2}
+      objectReference: {fileID: 2100000, guid: 249195572d8078d4594fc1150f74223f, type: 2}
     - target: {fileID: 919132149155446097, guid: a7cf3b51a9cf9e0428f78a3ce8223c01, type: 3}
       propertyPath: m_Name
       value: dice

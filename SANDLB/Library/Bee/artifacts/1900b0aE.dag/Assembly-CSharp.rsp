@@ -395,6 +395,7 @@
 "Assets/Scripts/Player/PlayerState.cs"
 "Assets/Scripts/QuestionGeneratorScript.cs"
 "Assets/Scripts/QuestionUIScript.cs"
+"Assets/Scripts/TimerScript.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
@@ -429,6 +430,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/Unity-URP-Outlines-main/Outlines/Scripts/RendererFeatures/ScreenSpaceOutlines.cs"
 -langversion:9.0
 
 /deterministic

@@ -6,6 +6,11 @@ TagManager:
   tags:
   - FieldHolder
   - GameManager
+  - DiceCamera
+  - FreeLookCamera
+  - QuestionGenerator
+  - TimerCamera
+  - Timer
   layers:
   - Default
   - TransparentFX
@@ -13,12 +18,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - TimerFluid
+  - TimerCamera
   - 
   - 
   - DiceCam
-  - 
+  - Camera
   - 
   - 
   - 

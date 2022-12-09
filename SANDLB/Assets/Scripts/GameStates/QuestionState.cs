@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestionState : GameState
 {
-    public override void GetQuestion(GameObject questionUI)
+    public override void GetQuestion(GameObject questionUI, GameObject timer)
     {
         return;
     }

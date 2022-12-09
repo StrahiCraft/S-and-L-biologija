@@ -175,10 +175,10 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Window\TimelineWindow_PlayRange.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\treeview\AnimationTrackKeyDataSource.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\treeview\Drawers\AnimationTrackDrawer.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Utilities\Scopes\PropertyScope.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Manipulators\Sequence\MarkerHeaderTrackManipulator.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Localization\Localization.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Window\TimelineWindow_TimeArea.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Utilities\Scopes\PropertyScope.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Utilities\AnimatedParameterCache.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Utilities\FileUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\State\WindowState.cs" />
@@ -293,8 +293,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\DirectorNamedColor.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Signals\SignalEventDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Actions\IMenuChecked.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Actions\IAction.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\treeview\Drawers\ClipDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Actions\IAction.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Utilities\TrackModifier.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Items\ITimelineItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.7.2\Editor\Manipulators\Sequence\TrimClip.cs" />

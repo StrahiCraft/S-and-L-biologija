@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiceRollState : GameState
 {
-    public override void GetQuestion(GameObject questionUI)
+    public override void GetQuestion(GameObject questionUI, GameObject timer)
     {
         return;
     }
@@ -24,6 +24,7 @@ public class DiceRollState : GameState
     }
     public override void OnStateEnter()
     {
+        GameObject.FindGameObjectWithTag("Timer").SetActive(false);
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().FreeLookCamera.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

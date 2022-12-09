@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovingState : GameState
 {
-    public override void GetQuestion(GameObject questionUI)
+    public override void GetQuestion(GameObject questionUI, GameObject timer)
     {
         return;
     }

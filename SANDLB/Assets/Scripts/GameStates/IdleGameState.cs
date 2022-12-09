@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class IdleGameState : GameState
 {
-    public override void GetQuestion(GameObject questionUI)
+    public override void GetQuestion(GameObject questionUI, GameObject timer)
     {
         questionUI.SetActive(true);
         questionUI.GetComponent<QuestionUIScript>().ChooseQuestion();
+        timer.SetActive(true);
+        timer.GetComponent<TimerScript>().StartTimer();
+
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new QuestionState());
     }
     public override void RollDice(GameObject diceCamera)

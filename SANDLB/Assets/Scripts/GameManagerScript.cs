@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
@@ -6,6 +5,7 @@ using Cinemachine;
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] GameObject diceCamera;
+    [SerializeField] GameObject timer;
     [SerializeField] GameObject questionUI;
     public GameObject FreeLookCamera
     {
@@ -40,7 +40,7 @@ public class GameManagerScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            currentGameState.GetQuestion(questionUI);
+            currentGameState.GetQuestion(questionUI, timer);
         }
         int moveCount = diceCamera.activeInHierarchy? diceCamera.GetComponentInChildren<DiceScript>().DiceValue : 0;
         List<Vector3> positions = GeneratePositionList(moveCount);
@@ -125,5 +125,7 @@ public class GameManagerScript : MonoBehaviour
         currentTurn++;
         FreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = players[currentTurn % 4].transform;
         FreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = players[currentTurn % 4].transform;
+        timer.SetActive(false);
+        questionUI.SetActive(false);
     }
 }
