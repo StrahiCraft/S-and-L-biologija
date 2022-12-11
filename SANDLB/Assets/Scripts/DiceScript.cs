@@ -22,6 +22,8 @@ public class DiceScript : MonoBehaviour
     }
     public void ThrowDice()
     {
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("DiceRoll");
+
         DiceValue = 0;
         transform.position = defaultPosition;
 

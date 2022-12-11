@@ -4,7 +4,9 @@ using TMPro;
 public class QuestionUIScript : MonoBehaviour
 {
     [SerializeField] TMP_Text questionText;
+
     bool correctQuestionAnswer = true;
+
     public void ChooseQuestion()
     {
         QuestionData newQuestion = GameObject.FindGameObjectWithTag("QuestionGenerator").
@@ -24,8 +26,12 @@ public class QuestionUIScript : MonoBehaviour
     {
         if (chosenAnswer != correctQuestionAnswer)
         {
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("Pogresno");
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new IdleGameState());
+            return;
         }
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("Tacno");
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().RollDice();
     }
+    
 }
