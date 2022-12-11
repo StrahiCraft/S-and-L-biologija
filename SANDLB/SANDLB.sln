@@ -53,13 +53,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Network
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Core.ShaderLibrary", "Unity.RenderPipelines.Core.ShaderLibrary.csproj", "{F37FB818-9A97-F858-130C-E6BFC8CCFA66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StylizedWaterForURP", "StylizedWaterForURP.csproj", "{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Configuration", "Unity.Services.Core.Configuration.csproj", "{462F960D-D6CC-FCAE-D429-65509DCBD304}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.Shaders", "Unity.RenderPipelines.Universal.Shaders.csproj", "{7EA6EF57-7DE3-9F02-8BAB-6A10B761053A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary", "Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj", "{85F584FA-0EB1-7981-2D3C-B1AB82293123}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StylizedWaterForURP", "StylizedWaterForURP.csproj", "{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlasticSCM.Editor", "Unity.PlasticSCM.Editor.csproj", "{22963EDC-A834-332C-BCDF-BD38F4B01BC9}"
 EndProject
@@ -113,6 +113,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.EditorCoroutines.Edit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPv2URPConverters", "PPv2URPConverters.csproj", "{5BC10BEC-7DB9-5D0A-4E57-EE990D46B20C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StylizedWaterForURPEditor", "StylizedWaterForURPEditor.csproj", "{49B987DA-881D-932D-B4C1-8CD932AE24DF}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.Editor", "Unity.Mathematics.Editor.csproj", "{7A7721BC-FFFA-5443-B591-3214E9A625CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Configuration.Editor", "Unity.Services.Core.Configuration.Editor.csproj", "{EF5D1871-41E2-AEB2-C053-D61E6B06475D}"
@@ -124,8 +126,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection", "Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj", "{2732B4B5-4837-3F34-8AF1-AA82C88ED56C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VisualScripting.Shared.Editor", "Unity.VisualScripting.Shared.Editor.csproj", "{467AAFCE-F332-7460-FF16-96D1B714FDE2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StylizedWaterForURPEditor", "StylizedWaterForURPEditor.csproj", "{49B987DA-881D-932D-B4C1-8CD932AE24DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -237,6 +237,10 @@ Global
 		{F37FB818-9A97-F858-130C-E6BFC8CCFA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F37FB818-9A97-F858-130C-E6BFC8CCFA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F37FB818-9A97-F858-130C-E6BFC8CCFA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{462F960D-D6CC-FCAE-D429-65509DCBD304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{462F960D-D6CC-FCAE-D429-65509DCBD304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{462F960D-D6CC-FCAE-D429-65509DCBD304}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -249,10 +253,6 @@ Global
 		{85F584FA-0EB1-7981-2D3C-B1AB82293123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85F584FA-0EB1-7981-2D3C-B1AB82293123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85F584FA-0EB1-7981-2D3C-B1AB82293123}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22963EDC-A834-332C-BCDF-BD38F4B01BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22963EDC-A834-332C-BCDF-BD38F4B01BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22963EDC-A834-332C-BCDF-BD38F4B01BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -357,6 +357,10 @@ Global
 		{5BC10BEC-7DB9-5D0A-4E57-EE990D46B20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BC10BEC-7DB9-5D0A-4E57-EE990D46B20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BC10BEC-7DB9-5D0A-4E57-EE990D46B20C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A7721BC-FFFA-5443-B591-3214E9A625CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A7721BC-FFFA-5443-B591-3214E9A625CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A7721BC-FFFA-5443-B591-3214E9A625CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -381,10 +385,6 @@ Global
 		{467AAFCE-F332-7460-FF16-96D1B714FDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{467AAFCE-F332-7460-FF16-96D1B714FDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{467AAFCE-F332-7460-FF16-96D1B714FDE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49B987DA-881D-932D-B4C1-8CD932AE24DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

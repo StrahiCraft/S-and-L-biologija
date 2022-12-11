@@ -56,10 +56,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Stylized Water For URP\Scripts\Runtime\Caustics\CausticsFeature.cs" />
+    <Compile Include="Assets\Stylized Water For URP\Scripts\Runtime\Water\StylizedWaterURP.cs" />
     <Compile Include="Assets\Stylized Water For URP\Scripts\Runtime\Caustics\CausticsPass.cs" />
     <Compile Include="Assets\Stylized Water For URP\Scripts\Runtime\Reflections\PlanarReflections.cs" />
-    <Compile Include="Assets\Stylized Water For URP\Scripts\Runtime\Water\StylizedWaterURP.cs" />
+    <Compile Include="Assets\Stylized Water For URP\Scripts\Runtime\Caustics\CausticsFeature.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Stylized Water For URP\Scripts\Runtime\Stylized Water For URP Runtime.asmdef" />

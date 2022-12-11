@@ -78,6 +78,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Scripts\Fields\EndFieldScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Scripts\TimerScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\GameStates\DiceRollState.cs" />
+    <Compile Include="Assets\Scripts\GameStates\GameEndState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\QuestionGeneratorScript.cs" />
     <Compile Include="Assets\Scripts\Player\MovingState.cs" />
@@ -954,6 +956,10 @@
       <Project>{7A7721BC-FFFA-5443-B591-3214E9A625CC}</Project>
       <Name>Unity.Mathematics.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="StylizedWaterForURP.csproj">
+      <Project>{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}</Project>
+      <Name>StylizedWaterForURP</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.csproj">
       <Project>{06ABB79F-1C38-CA70-85E8-54C14BFBD4F6}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor</Name>
@@ -969,10 +975,6 @@
     <ProjectReference Include="StylizedWaterForURPEditor.csproj">
       <Project>{49B987DA-881D-932D-B4C1-8CD932AE24DF}</Project>
       <Name>StylizedWaterForURPEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="StylizedWaterForURP.csproj">
-      <Project>{25FDFF00-2CB2-F739-4BBF-4B0CA1F03CA3}</Project>
-      <Name>StylizedWaterForURP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

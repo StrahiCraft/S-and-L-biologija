@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FieldScript : MonoBehaviour
@@ -48,6 +46,9 @@ public class FieldScript : MonoBehaviour
         }
         switch (positionCase)
         {
+            case 0:
+                gameObject.transform.GetChild(0).transform.position = transform.position;
+                break;
             case 1:
                 SetPlayersPositions(twoPlayersOnFieldPositionOffset);
                 break;
