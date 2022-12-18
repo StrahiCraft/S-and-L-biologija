@@ -9,6 +9,7 @@ public class EndFieldScript : MonoBehaviour
     {
         gameEndUI.SetActive(true);
         victoryText.text = other.name + " je pobednik!";
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("PlayerLand");
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new GameEndState());
     }
 }

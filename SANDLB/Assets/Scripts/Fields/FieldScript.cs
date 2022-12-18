@@ -3,7 +3,7 @@ using UnityEngine;
 public class FieldScript : MonoBehaviour
 {
 
-    int positionCase = -1;
+    int positionCase = 0;
 
     [SerializeField] Vector3[] twoPlayersOnFieldPositionOffset;
     [SerializeField] Vector3[] threePlayersOnFieldPositionOffset;
@@ -17,6 +17,7 @@ public class FieldScript : MonoBehaviour
         }
         other.transform.parent = transform;
         positionCase++;
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("PlayerLand");
     }
     private void OnTriggerExit(Collider other)
     {
@@ -29,11 +30,7 @@ public class FieldScript : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (!other.CompareTag("Player"))
-        {
-            return;
-        }
-        if(positionCase != -1)
+        if(positionCase != 0)
         {
             CheckPlayerPositionCase();
         }
@@ -46,16 +43,16 @@ public class FieldScript : MonoBehaviour
         }
         switch (positionCase)
         {
-            case 0:
-                gameObject.transform.GetChild(0).transform.position = transform.position;
-                break;
             case 1:
-                SetPlayersPositions(twoPlayersOnFieldPositionOffset);
+                gameObject.transform.GetChild(1).transform.position = transform.position;
                 break;
             case 2:
-                SetPlayersPositions(threePlayersOnFieldPositionOffset);
+                SetPlayersPositions(twoPlayersOnFieldPositionOffset);
                 break;
             case 3:
+                SetPlayersPositions(threePlayersOnFieldPositionOffset);
+                break;
+            case 4:
                 SetPlayersPositions(fourPlayersOnFieldPositionOffset);
                 break;
             default:
@@ -67,7 +64,7 @@ public class FieldScript : MonoBehaviour
         int playerCount = playerPositionOffsets.Length;
         for(int playerIndex = 0; playerIndex < playerCount; playerIndex++)
         {
-            gameObject.transform.GetChild(playerIndex).transform.localPosition = playerPositionOffsets[playerIndex] / transform.localScale.x;
+            gameObject.transform.GetChild(playerIndex + 1).transform.localPosition = playerPositionOffsets[playerIndex] / transform.localScale.x;
         }
     }
 }

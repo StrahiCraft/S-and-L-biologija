@@ -27,6 +27,7 @@ public class GameManagerScript : MonoBehaviour
 
     void Start()
     {
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("BGM");
         FreeLookCamera = GameObject.FindGameObjectWithTag("FreeLookCamera");
         ChangeGameState(new IdleGameState());
         HandleFields();

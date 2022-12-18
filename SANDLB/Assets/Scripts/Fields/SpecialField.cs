@@ -11,6 +11,7 @@ public class SpecialField : MonoBehaviour
         {
             return;
         }
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("PlayerLand");
         StartCoroutine(StartPlayerMovement(other));
     }
     private void OnTriggerExit(Collider other)

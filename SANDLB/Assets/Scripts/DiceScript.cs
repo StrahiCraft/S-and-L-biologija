@@ -27,9 +27,9 @@ public class DiceScript : MonoBehaviour
         DiceValue = 0;
         transform.position = defaultPosition;
 
-        float explosionForce = Random.Range(10, 50);
+        float explosionForce = Random.Range(100, 500);
         Vector3 explosionPosition = transform.position + new Vector3(Random.Range(-30, 30), Random.Range(-10, 0), Random.Range(-30, 30));
-        float upwardsModifier = Random.Range(10, 50);
+        float upwardsModifier = Random.Range(100, 500);
 
         rb.AddExplosionForce(explosionForce, explosionPosition, 0, upwardsModifier, ForceMode.Impulse);
 

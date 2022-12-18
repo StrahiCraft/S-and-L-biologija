@@ -35,6 +35,7 @@ public class TimerScript : MonoBehaviour
     {
         if(endTimerFluidPosition == timerFluid.transform.position)
         {
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("Pogresno");
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new IdleGameState());
             return;
         }

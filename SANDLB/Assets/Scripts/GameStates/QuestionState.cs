@@ -8,6 +8,7 @@ public class QuestionState : GameState
     }
     public override void RollDice(GameObject diceCamera)
     {
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Stop("Timer");
         diceCamera.SetActive(true);
         diceCamera.GetComponentInChildren<DiceScript>().ThrowDice();
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new DiceRollState());
@@ -18,6 +19,7 @@ public class QuestionState : GameState
     }
     public override void OnStateEnter()
     {
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("Timer");
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().FreeLookCamera.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;

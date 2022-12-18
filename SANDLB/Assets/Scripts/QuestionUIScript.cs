@@ -27,6 +27,7 @@ public class QuestionUIScript : MonoBehaviour
         if (chosenAnswer != correctQuestionAnswer)
         {
             GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("Pogresno");
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Stop("Timer");
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new IdleGameState());
             return;
         }

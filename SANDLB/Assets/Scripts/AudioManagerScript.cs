@@ -19,8 +19,7 @@ public class AudioManagerScript : MonoBehaviour
         {
             if (!audioSourceList[currentAudioSourceIndex].isPlaying)
             {
-                Destroy(audioSourceList[currentAudioSourceIndex]);
-                audioSourceList.RemoveAt(currentAudioSourceIndex);
+                DestroyAudioSource(currentAudioSourceIndex);
                 return;
             }
             currentAudioSourceIndex++;
@@ -38,9 +37,29 @@ public class AudioManagerScript : MonoBehaviour
         currentAudioSource.Play();
     }
 
+    public void Stop(string soundEffectName)
+    {
+        SoundEffect currentSoundEffect = soundEffects[GetSoundEffectIndex(soundEffectName)];
+        for (int currentAudioSourceIndex = 0; currentAudioSourceIndex < audioSourceList.Count; currentAudioSourceIndex++)
+        {
+            if(audioSourceList[currentAudioSourceIndex].clip.name == currentSoundEffect.clip.name)
+            {
+                DestroyAudioSource(currentAudioSourceIndex);
+                return;
+            }
+        }
+    }
+
+    void DestroyAudioSource(int audioSourceIndex)
+    {
+        Destroy(audioSourceList[audioSourceIndex]);
+        audioSourceList.RemoveAt(audioSourceIndex);
+    }
+
     void SetUpCurrentAudioSource(ref AudioSource currentAudioSource, SoundEffect currentSoundEffect)
     {
         currentAudioSource.playOnAwake = false;
+        currentAudioSource.name = currentSoundEffect.name;
         currentAudioSource.clip = currentSoundEffect.clip;
         currentAudioSource.volume = currentSoundEffect.volume;
         currentAudioSource.pitch = currentSoundEffect.pitch;
