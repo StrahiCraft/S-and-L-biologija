@@ -12,4 +12,8 @@ public class EndFieldScript : MonoBehaviour
         GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("PlayerLand");
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new GameEndState());
     }
+    private void OnTriggerExit(Collider other)
+    {
+        gameEndUI.SetActive(false);
+    }
 }

@@ -26,4 +26,9 @@ public class IdleGameState : GameState
         Cursor.visible = false;
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().NextTurn();
     }
+
+    public override void OnStateExit()
+    {
+        return;
+    }
 }

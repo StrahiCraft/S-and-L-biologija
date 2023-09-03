@@ -24,4 +24,9 @@ public class PlayerMovingState : GameState
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    public override void OnStateExit()
+    {
+        return;
+    }
 }

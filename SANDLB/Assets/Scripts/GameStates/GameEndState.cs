@@ -4,7 +4,7 @@ public class GameEndState : GameState
 {
     public override void OnStateEnter()
     {
-        return;
+        Cursor.lockState = CursorLockMode.Confined;
     }
     public override void RollDice(GameObject diceCamera)
     {
@@ -15,6 +15,11 @@ public class GameEndState : GameState
         return;
     }
     public override void GetQuestion(GameObject questionUI, GameObject timer)
+    {
+        return;
+    }
+
+    public override void OnStateExit()
     {
         return;
     }

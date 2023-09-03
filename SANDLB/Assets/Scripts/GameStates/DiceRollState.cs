@@ -16,6 +16,10 @@ public class DiceRollState : GameState
         {
             return;
         }
+        if(diceNumber == 6) 
+        {
+            GameManagerScript.Instance.PlayerPlaysAgain();
+        }
         GameObject DiceCamera = GameObject.FindGameObjectWithTag("DiceCamera");
         DiceCamera.SetActive(false);
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().ChangeGameState(new PlayerMovingState());
@@ -26,5 +30,10 @@ public class DiceRollState : GameState
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().FreeLookCamera.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public override void OnStateExit()
+    {
+        return;
     }
 }

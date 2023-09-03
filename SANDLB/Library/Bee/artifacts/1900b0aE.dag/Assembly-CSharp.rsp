@@ -436,12 +436,14 @@
 "Assets/Scripts/GameStates/IdleGameState.cs"
 "Assets/Scripts/GameStates/PlayerMovingState.cs"
 "Assets/Scripts/GameStates/QuestionState.cs"
+"Assets/Scripts/MainMenuManager.cs"
 "Assets/Scripts/Player/IdleState.cs"
 "Assets/Scripts/Player/MovingState.cs"
 "Assets/Scripts/Player/PlayerScript.cs"
 "Assets/Scripts/Player/PlayerState.cs"
 "Assets/Scripts/QuestionGeneratorScript.cs"
 "Assets/Scripts/QuestionUIScript.cs"
+"Assets/Scripts/Scoreboard.cs"
 "Assets/Scripts/TimerScript.cs"
 -langversion:9.0
 

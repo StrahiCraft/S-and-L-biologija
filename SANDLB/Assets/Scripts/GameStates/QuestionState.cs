@@ -19,9 +19,15 @@ public class QuestionState : GameState
     }
     public override void OnStateEnter()
     {
+        Scoreboard.Instance.SetCanvasActive(false);
         GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().Play("Timer");
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().FreeLookCamera.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+    }
+
+    public override void OnStateExit()
+    {
+        Scoreboard.Instance.SetCanvasActive(true);
     }
 }

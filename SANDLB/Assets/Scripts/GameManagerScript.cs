@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System.Runtime.CompilerServices;
+using System;
 
 public class GameManagerScript : MonoBehaviour
 {
+    public static GameManagerScript Instance;
+
     [SerializeField] GameObject diceCamera;
     [SerializeField] GameObject timer;
     [SerializeField] GameObject questionUI;
@@ -23,7 +27,19 @@ public class GameManagerScript : MonoBehaviour
     List<GameObject> fields = new List<GameObject>();//lista sa svim poljima
     GameObject fieldHolder;//gameobject u kome se nalaze sva polja
 
-    GameState currentGameState;
+    GameState currentGameState = new IdleGameState();
+
+    bool playerPlaysAgain = false;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            return;
+        }
+        Destroy(this);
+    }
 
     void Start()
     {
@@ -39,6 +55,8 @@ public class GameManagerScript : MonoBehaviour
 
     void Update()
     {
+        Scoreboard.Instance.GenerateScoreboard(currentTurn, playerFieldIndexes);
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             currentGameState.GetQuestion(questionUI, timer);
@@ -67,6 +85,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void ChangeGameState(GameState newGameState)
     {
+        currentGameState.OnStateExit();
         currentGameState = newGameState;
         currentGameState.OnStateEnter();
     }
@@ -123,10 +142,39 @@ public class GameManagerScript : MonoBehaviour
 
     public void NextTurn()
     {
+        Scoreboard.Instance.GenerateScoreboard(currentTurn, playerFieldIndexes);
+        if(playerPlaysAgain)
+        {
+            currentTurn--;
+            playerPlaysAgain = false;
+        }
         currentTurn++;
         FreeLookCamera.GetComponent<CinemachineFreeLook>().Follow = players[currentTurn % 4].transform;
         FreeLookCamera.GetComponent<CinemachineFreeLook>().LookAt = players[currentTurn % 4].transform;
         timer.SetActive(false);
         questionUI.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        ChangeGameState(new IdleGameState());
+        for(int i = 0; i < 4; i++)
+        {
+            players[i].transform.position = new Vector3(0, -0.3f, 0);
+            playerFieldIndexes[i] = 0;
+        }
+        currentTurn = -1;
+        NextTurn();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PlayerPlaysAgain()
+    {
+        playerPlaysAgain = true;
     }
 }
